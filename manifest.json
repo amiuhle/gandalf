@@ -1,0 +1,18 @@
+{
+	"name": "Gandalf",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Tribal Wars + Gandalf = Awesome White Beard",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.ds.ignames.net/*"
+      ],
+      "css": [],
+      "js": [
+        "js/jquery-1.7.2.js",
+        "js/gandalf.js"
+      ]
+    }
+  ]
+}
