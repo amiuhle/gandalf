@@ -6,7 +6,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*.ds.ignames.net/*"
+        // "http://*.ds.ignames.net/*",
+        "http://*.die-staemme.de/*"
       ],
       "css": [],
       "js": [
