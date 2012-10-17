@@ -10,6 +10,16 @@ gandalf = (function(w, d, undefined) {
     },
 	  screen = param('screen'),
 
+    visualClick = function(selector) {
+      var elt = $(selector);
+      if(elt && elt[0]) {
+        elt.css('border', '1px solid red');
+        elt[0].click();
+      } else {
+        cl('Sorry, I was unable to click ' + selector);
+      }
+    },
+
 	  enhanceReportList = function() {
       console.log('enhanceReportList');
 	  },
@@ -21,23 +31,23 @@ gandalf = (function(w, d, undefined) {
         switch(e.which) {
           case 65:
             console.log('a');
-            $('#attack_spy tr:nth-child(2) a:eq(0)')[0].click();
+            visualClick('#attack_spy tr:nth-child(2) a.farm_icon_a');
             break;
           case 66:
             console.log('b');
-            $('#attack_spy tr:nth-child(2) a:eq(1)')[0].click();
+            visualClick('#attack_spy tr:nth-child(2) a.farm_icon_b');
             break;
           case 67:
             console.log('c');
-            $('#attack_spy tr:nth-child(2) a:eq(2)')[0].click();
+            visualClick('#attack_spy tr:nth-child(2) a.farm_icon_c');
             break;
           case 74: // 'j': down
             console.log('j');
-            $('#content_value table.vis:last td:nth-child(6) a')[0].click();
+            visualClick('#content_value table.vis:last a:contains(>>)');
             break;
           case 75: // 'k': up
             console.log('k');
-            $('#content_value table.vis:last td:nth-child(5) a')[0].click();
+            visualClick('#content_value table.vis:last a:contains(<<)');
             break;
           default:
             console.log(e.which);
