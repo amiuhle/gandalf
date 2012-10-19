@@ -28,6 +28,11 @@ gandalf = (function(w, d, undefined) {
       console.log('enhanceReportDetails', d, $('#attack_info_def_units'));
 
       $(document).on('keydown', function(e) {
+        console.log(e);
+        if(e.ctrlKey || e.altKey || e.shiftKey || e.metaKey) {
+          // make sure we don't click any links when the user actually wanted to copy e.g.
+          return;
+        }
         switch(e.which) {
           case 65:
             console.log('a');
@@ -41,16 +46,17 @@ gandalf = (function(w, d, undefined) {
             console.log('c');
             visualClick('#attack_spy tr:nth-child(2) a.farm_icon_c');
             break;
-          case 74: // 'j': down
+          case 74: // 'j': left
             console.log('j');
-            visualClick('#content_value table.vis:last a:contains(>>)');
-            break;
-          case 75: // 'k': up
-            console.log('k');
             visualClick('#content_value table.vis:last a:contains(<<)');
+            break;
+          case 75: // 'k': right
+            console.log('k');
+            visualClick('#content_value table.vis:last a:contains(>>)');
             break;
           default:
             console.log(e.which);
+            break;
         }
       });
 
