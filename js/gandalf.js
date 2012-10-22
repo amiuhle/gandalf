@@ -24,6 +24,22 @@ gandalf = (function(w, d, undefined) {
       console.log('enhanceReportList');
 	  },
 
+    sendOnX = function() {
+      $(document).on('keydown', function(e) {
+        console.log(e);
+        if(e.ctrlKey || e.altKey || e.shiftKey || e.metaKey) {
+          // make sure we don't click any links when the user actually wanted to copy e.g.
+          return;
+        }
+        switch(e.which) {
+          default:
+            case 88: // x
+              visualClick('#troop_confirm_go');
+
+        }
+      });
+    },
+
     enhanceReportDetails = function() {
       console.log('enhanceReportDetails', d, $('#attack_info_def_units'));
 
@@ -77,6 +93,7 @@ gandalf = (function(w, d, undefined) {
   return {
   	init: function() {
       var f = gandalf[screen];
+      console.log(f);
       if(typeof f === 'function') {
         f();
       } else {
@@ -85,6 +102,11 @@ gandalf = (function(w, d, undefined) {
     },
     report: function() {
       param('view') === undefined ? enhanceReportList() : enhanceReportDetails();
+    },
+    place: function() {
+      if(param('try') === 'confirm') {
+        sendOnX();
+      }
     }
   };
 })(window, document);
