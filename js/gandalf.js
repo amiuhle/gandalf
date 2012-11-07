@@ -27,15 +27,10 @@ gandalf = (function(w, d, undefined) {
     sendOnX = function() {
       $(document).on('keydown', function(e) {
         console.log(e);
-        if(e.ctrlKey || e.altKey || e.shiftKey || e.metaKey) {
-          // make sure we don't click any links when the user actually wanted to copy e.g.
-          return;
-        }
         switch(e.which) {
-          default:
-            case 88: // x
-              visualClick('#troop_confirm_go');
-
+          case 88: // x
+            visualClick('#troop_confirm_go');
+            break;
         }
       });
     },
@@ -93,7 +88,6 @@ gandalf = (function(w, d, undefined) {
   return {
   	init: function() {
       var f = gandalf[screen];
-      console.log(f);
       if(typeof f === 'function') {
         f();
       } else {
