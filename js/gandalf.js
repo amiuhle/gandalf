@@ -24,6 +24,17 @@ gandalf = (function(w, d, undefined) {
       console.log('enhanceReportList');
 	  },
 
+    sendOnX = function() {
+      $(document).on('keydown', function(e) {
+        console.log(e);
+        switch(e.which) {
+          case 88: // x
+            visualClick('#troop_confirm_go');
+            break;
+        }
+      });
+    },
+
     enhanceReportDetails = function() {
       console.log('enhanceReportDetails', d, $('#attack_info_def_units'));
 
@@ -85,6 +96,11 @@ gandalf = (function(w, d, undefined) {
     },
     report: function() {
       param('view') === undefined ? enhanceReportList() : enhanceReportDetails();
+    },
+    place: function() {
+      if(param('try') === 'confirm') {
+        sendOnX();
+      }
     }
   };
 })(window, document);
