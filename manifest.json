@@ -2,7 +2,7 @@
 	"name": "Gandalf",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Tribal Wars + Gandalf = Awesome White Beard",
+  "description": "Tribal Wars, Enhanced!",
   "content_scripts": [
     {
       "matches": [
