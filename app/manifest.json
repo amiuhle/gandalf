@@ -18,8 +18,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*/*",
-        "https://*/*"
+        "http://*.die-staemme.de/*"
       ],
       "css": [
         "styles/main.css"
