@@ -6,7 +6,7 @@ gandalf = (function(w, d, undefined) {
     cl = function() { return console.log.apply(console, arguments); },
     // extracts a url param
     param = function(name) {
-      return (new RegExp(name + "=([^\&]*)").exec(loc.search) || [undefined, undefined])[1];
+      return (new RegExp(name + "=([^&]*)").exec(loc.search) || [undefined, undefined])[1];
     },
 	  screen = param('screen'),
 
@@ -83,8 +83,8 @@ gandalf = (function(w, d, undefined) {
         cl('Möglich: \t'+p+'\nErzielt: \t'+a);
     },
 
-    iCanTypeCommas = undefined;
-  
+    iCanTypeCommas;
+
   return {
   	init: function() {
       var f = gandalf[screen];
@@ -95,7 +95,11 @@ gandalf = (function(w, d, undefined) {
       }
     },
     report: function() {
-      param('view') === undefined ? enhanceReportList() : enhanceReportDetails();
+      if(param('view') === undefined) {
+        enhanceReportList();
+      } else {
+        enhanceReportDetails();
+      }
     },
     place: function() {
       if(param('try') === 'confirm') {
