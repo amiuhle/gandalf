@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Gandalf",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Tribal Wars, Enhanced!",
+    "description": "The description of the application"
+  }
+}
