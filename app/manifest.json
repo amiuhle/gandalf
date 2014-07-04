@@ -24,7 +24,7 @@
         "styles/main.css"
       ],
       "js": [
-        "scripts/contentscript.js"
+        "scripts/content/_main.js"
       ],
       "run_at": "document_end",
       "all_frames": false
